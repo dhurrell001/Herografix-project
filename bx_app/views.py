@@ -16,7 +16,7 @@ def index(request):
 
 #@login_required  # Require user to be logged in
 def answer_question(request, question_id):
-    question = Question.objects.get(id=question_id)
+    question = Question.objects.get(question_identifier=question_id)
     questtext = question.question_text
     if request.method == 'POST': # runs if form has been filled in else it will render an empty form
         form = AnswerForm(request.POST)
@@ -52,7 +52,7 @@ def organise_answers(request):
     user = request.user
     user_answers = Answer.objects.filter(user=user) #get all Answer object for current user
     
-    quest1= user_answers.get(pk=3) # 'gets' and single object from aboce query set to allow for access of attributes in template
+    quest1= user_answers.get(pk=1) # 'gets' and single object from aboce query set to allow for access of attributes in template
     quest2= user_answers.get(pk=4)
     quest3 = user_answers.get(pk=1)
 
@@ -62,7 +62,7 @@ def organise_answers(request):
 
 def most_recent_answer(request):
     user = request.user   # gets current user data
-    most_recent_answer = Answer.objects.filter(question=2, user=user).latest('answer_date') # geta answer object using current useer and question db id number
+    most_recent_answer = Answer.objects.filter(question__question_identifier =3, user=user).latest('answer_date') # geta answer object using current useer and  custom question id number
     context = {'most_recent': most_recent_answer}
 
     return render(request, 'most_recent.html',context)
