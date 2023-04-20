@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from .models import Question, Answer
 from .forms import AnswerForm
 from django.contrib.auth.models import User
+from datetime import datetime
 
 def index(request):
     user = request.user.username
@@ -21,7 +22,9 @@ def answer_question(request, question_id):
         form = AnswerForm(request.POST)
         if form.is_valid():
             answer_text = form.cleaned_data['answer_text']
-            answer = Answer(question=question, user=request.user, answer_text=answer_text)  # Link answer to user
+            answer_date = datetime.now()
+            answer = Answer(question=question, user=request.user, answer_text=answer_text,answer_date = answer_date)  # Link answer to user
+            
             answer.save()
             return redirect('success_page')  # Redirect to a success page
     else:
