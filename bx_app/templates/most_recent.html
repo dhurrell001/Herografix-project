@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+<html>
+<body>
+    {% block content%}
+    <h1></h1><br>
+    
+    <p>{{most_recent.answer_text}}</p><br>
+    <p>{{most_recent.answer_date}}</p>
+    
+    <a href="{% url 'index'%}">HOME</a><br>
+
+    
+    {%endblock%}
+</body>
+</html>

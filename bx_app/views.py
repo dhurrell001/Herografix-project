@@ -18,7 +18,7 @@ def index(request):
 def answer_question(request, question_id):
     question = Question.objects.get(id=question_id)
     questtext = question.question_text
-    if request.method == 'POST':
+    if request.method == 'POST': # runs if form has been filled in else it will render an empty form
         form = AnswerForm(request.POST)
         if form.is_valid():
             answer_text = form.cleaned_data['answer_text']
@@ -30,7 +30,8 @@ def answer_question(request, question_id):
     else:
         form = AnswerForm()
     return render(request, 'answer.html', {'form': form, 'question': question,'title':questtext})
-
+ 
+# View to show succesfful completion of answer form
 def success_page(request):
     user = request.user.username
     context = {'user':user}
@@ -39,6 +40,7 @@ def success_page(request):
 
 
 #@login_required # use the login_required decorator to ensure the user is authenticated
+# list all answers submitted by current user
 def user_answers(request):
     user = request.user # retrieve the currently logged-in user
     user_answers = Answer.objects.filter(user=user) # retrieve all the answers made by the user
@@ -48,12 +50,19 @@ def user_answers(request):
 
 def organise_answers(request):
     user = request.user
-    user_answers = Answer.objects.filter(user=user)
+    user_answers = Answer.objects.filter(user=user) #get all Answer object for current user
     
-    quest1= user_answers.get(pk=3)
+    quest1= user_answers.get(pk=3) # 'gets' and single object from aboce query set to allow for access of attributes in template
     quest2= user_answers.get(pk=4)
     quest3 = user_answers.get(pk=1)
 
     context = {'quest1':quest1,'quest2':quest2,'quest3':quest3}
 
     return render(request, 'sorted_answers.html',context)
+
+def most_recent_answer(request):
+    user = request.user   # gets current user data
+    most_recent_answer = Answer.objects.filter(question=2, user=user).latest('answer_date') # geta answer object using current useer and question db id number
+    context = {'most_recent': most_recent_answer}
+
+    return render(request, 'most_recent.html',context)
