@@ -1,0 +1,13 @@
+from django.urls import path
+from . import views
+
+
+
+urlpatterns = [
+    path("", views.index, name="index"),
+    path('question/<int:question_id>/', views.answer_question, name='question_detail'),
+    path('success_page', views.success_page, name='success_page'),
+    path('user_answers', views.user_answers, name='user_answers'),
+    path('sorted_answers', views.organise_answers, name='sorted_answers')
+
+]

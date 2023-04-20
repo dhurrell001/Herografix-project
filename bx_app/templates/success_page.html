@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+<html>
+<body>
+    {% block content%}
+    <h1>Answer has been submitted.</h1><br>
+    
+    <p>Thank you {{user}}</p>
+    
+    <a href="{% url 'index'%}">HOME</a><br>
+
+    
+    {%endblock%}
+</body>
+</html>

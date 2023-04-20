@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html>
+
+<body>
+    {% block content %}
+    <p>{{context}}</p>
+    <h1>Answers by {{ request.user.username }}</h1>
+  {% if user_answers %}
+    <ul>
+      {% for answer in user_answers %}
+        <li>{{ answer.answer_text}} Answer id = {{answer.id}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>{{ request.user.username }} hasn't posted any answers yet.</p>
+  {% endif %}
+  <br>
+  <br>
+  <a href="{% url 'index'%}">HOME</a><br>
+ {%endblock%}
+
+    
+
+</body>
+</html>
