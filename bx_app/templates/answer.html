@@ -3,17 +3,39 @@
 <html>
 <body>
     {% block content%}
+
+    <br><br><br><br><br><br>
+
+    <style>
+        .inner-div {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .answer_buttons {
+            width: 50%;
+            margin: 0 auto;
+            text-align: right;
+        }
+    </style>
+ 
+    <div class="inner-div">
+        <form method="post">
+            {% csrf_token %}
+            <p>{{title}}</p>
+            {{ form.as_p }}
+            
+            <div class="answer_buttons">
+                <input type="submit" value="Submit">
+                <br> <br> <br>
+                <a href="{% url 'question_detail' question.question_identifier|add:1 %}">Answer Question 2</a><br>
+            </div>
+
     
-    <h1><strong>{{questtext}}</strong> </h1>
-        
-   
-    <form method="post">
-        {% csrf_token %}
-        {{title}}
-        {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
-<a href="{% url 'question_detail' question.question_identifier|add:1 %}">Answer Question 2</a><br>
+    
+        </form>
+
+    </div>
 {% endblock %}
 
 </body>

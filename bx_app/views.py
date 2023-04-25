@@ -8,9 +8,11 @@ from .models import Question, Answer
 from .forms import AnswerForm
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse_lazy
 
 def index(request):
-    user = request.user.username
+    user = request.user
     context = {'user':user}
     return render(request,'index.html',context )
 
@@ -65,7 +67,10 @@ def organise_answers(request):
 
 def most_recent_answer(request):
     user = request.user   # gets current user data
-    most_recent_answer = Answer.objects.filter(question__question_identifier =3, user=user).latest('answer_date') # geta answer object using current useer and  custom question id number
+    most_recent_answer = Answer.objects.filter(question__question_identifier =1, user=user).latest('answer_date') # geta answer object using current useer and  custom question id number
     context = {'most_recent': most_recent_answer}
 
     return render(request, 'most_recent.html',context)
+
+
+

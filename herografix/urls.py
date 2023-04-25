@@ -20,6 +20,7 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bx_app/', include('bx_app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 """#Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
