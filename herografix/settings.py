@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.auth',  # Core authentication framework and its default models.
+    'django.contrib.contenttypes',  # Django content type system (allows permissions to be associated with models).
     'bx_app',
 ]
 
@@ -48,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',  # Manages sessions across requests
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Associates users with requests using sessions.
 ]
 
 ROOT_URLCONF = 'herografix.urls'
