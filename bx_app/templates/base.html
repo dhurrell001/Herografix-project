@@ -4,23 +4,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-9kwzNqHTWg8vzZ1KjHgmi7Dqg0eguE7b1X9jK5l5+pcBSS0iZ5tlc6M2a7OjxhUu84dUzX9kYp7fzG6hEa7b0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <link rel="stylesheet" href="{% static 'bx_app/style.css' %}">
-    <title>{% block title %}{% endblock %}</title>
-    {% block head %}{% endblock %}
+    !><title>{% block title %}{% endblock %}</title>
+    !>{% block head %}{% endblock %}
 </head>
 <body>
     <header>
-       <h1><strong>HEROGRAFIX PROJECT</strong></h1>
+        <div class="header">
+            <h1><strong>HEROGRAFIX PROJECT</strong></h1>
+          </div>
+       
     </header>
+
+    
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <br>
-        Created by DEH Solutions
+        <div class="footer">
+            <p>Created by DEH Solutions</p>
+          </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-dg/GhAa0+KrHdyx62nnDlrb+JvlYtCqG3fjJd+Zzwr0f/X+7pBwW+L8ygz0G9X2Ys4J4W4+kmZvKjSl1RmnFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 </html>

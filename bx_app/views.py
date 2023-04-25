@@ -14,6 +14,9 @@ def index(request):
     context = {'user':user}
     return render(request,'index.html',context )
 
+def tester(request):
+    return render(request,'tester.html')
+
 #@login_required  # Require user to be logged in
 def answer_question(request, question_id):
     question = Question.objects.get(question_identifier=question_id)
@@ -52,9 +55,9 @@ def organise_answers(request):
     user = request.user
     user_answers = Answer.objects.filter(user=user) #get all Answer object for current user
     
-    quest1= user_answers.get(pk=1) # 'gets' and single object from aboce query set to allow for access of attributes in template
-    quest2= user_answers.get(pk=4)
-    quest3 = user_answers.get(pk=1)
+    quest1= user_answers.get(question__question_identifier =3) # 'gets' and single object from aboce query set to allow for access of attributes in template
+    quest2= user_answers.get(question__question_identifier =1)
+    quest3 = user_answers.get(question__question_identifier =3)
 
     context = {'quest1':quest1,'quest2':quest2,'quest3':quest3}
 

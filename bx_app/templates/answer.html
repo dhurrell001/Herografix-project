@@ -13,6 +13,7 @@
         {{ form.as_p }}
     <input type="submit" value="Submit">
 </form>
+<a href="{% url 'question_detail' question.question_identifier|add:1 %}">Answer Question 2</a><br>
 {% endblock %}
 
 </body>

@@ -12,13 +12,25 @@
   <body>
     {% block content %}
     <meta charset="utf-8">
-    <title>Welcome</title>
+    <title>Welcome</title> 
+    <br>
+    <br>
+    <br>
+    <br>
+
     <h2>Welcome, {{ user }}!</h2>
     <a href="{% url 'question_detail' question_id=1 %}">Answer Question 1</a><br>
     <a href="{% url 'question_detail' question_id=2 %}">Answer Question 2</a><br>
     <a href="{% url 'question_detail' question_id=3 %}">Answer Question 3</a><br>
     <a href="{% url 'user_answers'%}">Current users answers</a><br>
     <a href="{% url 'most_recent'%}">Most recent answer</a><br>
+
+    <!--below uses css positioning to put link on far side of screen-->
+
+    <div class="container" style="position: absolute; right: 0;">
+        <a href="#">This link is on the far right inside a container</a>
+      </div>
+
 
     <p>Thanks for visiting our site.</p>
     {%endblock%}
