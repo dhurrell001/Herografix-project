@@ -9,7 +9,7 @@
   {% if user_answers %}
     <ul>
       {% for answer in user_answers %}
-        <li>{{ answer.answer_text}} Answer id = {{answer.id}}</li>
+        <li>{{ answer.answer_text}} Answer id = {{answer.id}} Answer date = {{answer.answer_date}}</li>
       {% endfor %}
     </ul>
   {% else %}
