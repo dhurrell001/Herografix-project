@@ -11,6 +11,8 @@ urlpatterns = [
     path('sorted_answers', views.organise_answers, name='sorted_answers'),
     path('most_recent', views.most_recent_answer, name='most_recent'),
     path('tester', views.tester, name='tester'),
+    path('display_answers', views.organise_answers, name='display_answers'),
+    
     
 
 
