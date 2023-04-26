@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
+from django.http import HttpResponse
+from django.utils import timezone
 
 def index(request):
     user = request.user
@@ -54,16 +56,25 @@ def user_answers(request):
 
 
 def organise_answers(request):
-    user = request.user
-    user_answers = Answer.objects.filter(user=user) #get all Answer object for current user
+    # get the latest answer to question. filter by id and onlt store results in 1 item list [:1]. check if this item exist else replace with None
+    # order of how they are displayed can be rearranged in display_answers.html
+    try:
+        user = request.user
+        subquery1 = Answer.objects.filter(user=user, question__question_identifier=1).order_by('-answer_date')[:1]
+        subquery2 = Answer.objects.filter(user=user, question__question_identifier=2).order_by('-answer_date')[:1]
+        subquery3 = Answer.objects.filter(user=user, question__question_identifier=3).order_by('-answer_date')[:1]
+        
+        quest1= subquery1[0] if subquery1 else None
+        quest2= subquery2[0] if subquery2 else None
+        quest3 = subquery3[0] if subquery3 else None
+
+        context = {'quest1':quest1,'quest2':quest2,'quest3':quest3}
+
+        return render(request, 'display_answers.html',context)
     
-    quest1= user_answers.get(question__question_identifier =3) # 'gets' and single object from aboce query set to allow for access of attributes in template
-    quest2= user_answers.get(question__question_identifier =1)
-    quest3 = user_answers.get(question__question_identifier =3)
-
-    context = {'quest1':quest1,'quest2':quest2,'quest3':quest3}
-
-    return render(request, 'sorted_answers.html',context)
+    except Exception as e:
+        # return an error message
+        return HttpResponse("An error occurred: " + str(e))
 
 def most_recent_answer(request):
     user = request.user   # gets current user data
