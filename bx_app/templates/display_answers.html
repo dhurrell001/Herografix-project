@@ -8,33 +8,43 @@
 
 <body>
     {% block content%}
-    <style>
-      
-        textarea {
-          width: 50%;
-          margin: 0 auto;
-          word-wrap: break-word;
-          resize: vertical;
-          min-height: 1em;
-        }
-      </style>
-      <br> <br> <br> <br> <br>
-    <div>
-        <div>
-        <h3>Question {{quest1.question.question_identifier }}:</h3>
-          <textarea disabled class="answer-input">{{ quest1.answer_text }}</textarea>
-        </div>
-    
-        <div>
-          <h3>Question {{quest2.question.question_identifier }}:</h3>
-          <textarea disabled class="answer-input">{{ quest2.answer_text }}</textarea>
-        </div>
-    
-        <div>
-          <h3>Question {{quest3.question.question_identifier }}:</h3>
-          <textarea disabled class="answer-input">{{ quest3.answer_text }}</textarea>
-        </div>
-      </div>
+        <style>
+        
+            textarea {
+            width: 50%;
+            margin: 0 auto;
+            word-wrap: break-word;
+            resize: vertical;
+            overflow: hidden;
+            
+            }
+            textarea.expand {
+            height: auto;
+            min-height: 6em;
+            }
+            .answer-container {
+            text-align: center;
+            }
+        </style>
+        <br> <br> <br> 
+        <div class="answer-container">
+            <div>
+                <div>
+                <h3>Question {{quest1.question.question_identifier }}:</h3>
+                <textarea disabled class="answer-input expand">{{ quest1.answer_text }}</textarea>
+                </div>
+            
+                <div>
+                <h3>Question {{quest2.question.question_identifier }}:</h3>
+                <textarea disabled class="answer-input expand">{{ quest2.answer_text }}</textarea>
+                </div>
+            
+                <div>
+                <h3>Question {{quest3.question.question_identifier }}:</h3>
+                <textarea disabled class="answer-input expand">{{ quest3.answer_text }}</textarea>
+                </div>
+            </div>
+        
 
     
     {% endblock %}
