@@ -16,6 +16,26 @@
         <div class="header">
             <h1><strong>HEROGRAFIX PROJECT</strong></h1>
           </div>
+
+          <br><br><br><br><br><br>
+            <ul>
+            <a href="{% url 'question_detail' question_id=1 %}">Answer Question 1</a></li>
+            <li><a href="{% url 'question_detail' question_id=2 %}">Answer Question 2</a></li>
+            <li><a href="{% url 'question_detail' question_id=3 %}">Answer Question 3</a></li>
+            <li><a href="{% url 'user_answers'%}">Current users answers</a></li>
+            <li><a href="{% url 'most_recent'%}">Most recent answer</a></li>
+            <li><a href="{% url 'display_answers'%}">Dispaly sorted answers</a></li>
+            
+        
+          {% if user.is_authenticated %}
+            
+            
+            <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+          {% else %}
+            
+            <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+          {% endif %}]
+          </il>
        
     </header>
 
