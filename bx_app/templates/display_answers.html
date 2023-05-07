@@ -7,6 +7,7 @@
 
 
 <body>
+    <main>
     {% block content%}
         <style>
         
@@ -16,6 +17,7 @@
             word-wrap: break-word;
             resize: vertical;
             overflow: hidden;
+            background-color: #f6f0f7;
             
             }
             textarea.expand {
@@ -24,14 +26,15 @@
             }
             .answer-container {
             text-align: center;
+            
             }
         </style>
-        <br> <br> <br> 
+        <br> <br> 
         <div class="answer-container">
             <div>
                 <div>
-                <h3>Question {{quest1.question.question_identifier }}:</h3>
-                <textarea disabled class="answer-input expand">{{ quest1.answer_text }}</textarea>
+                <h3>Question {{quest3.question.question_identifier }}:</h3>
+                <textarea disabled class="answer-input expand">{{ quest3.answer_text }}</textarea>
                 </div>
             
                 <div>
@@ -40,14 +43,22 @@
                 </div>
             
                 <div>
+                <h3>Question {{quest1.question.question_identifier }}:</h3>
+                <textarea disabled class="answer-input expand">{{ quest1.answer_text }}</textarea>
+                </div>
+
+                <div>
                 <h3>Question {{quest3.question.question_identifier }}:</h3>
                 <textarea disabled class="answer-input expand">{{ quest3.answer_text }}</textarea>
                 </div>
             </div>
+        </div>
         
 
     
     {% endblock %}
+
+</main>
 
 </body>
 </html>

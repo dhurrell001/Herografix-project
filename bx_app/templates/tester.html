@@ -1,10 +1,48 @@
+
+
+{% load static %}
+
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Your Page Title</title>
+    <style>
+        .picture {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 50%;
+          text-align: right;
+          
+        }
+    </style>
+    
   </head>
   <body>
     <h1>Your Heading Here</h1>
     <p>Your content here.</p>
+    
+    <div class="picture">
+    <img src="{% static 'bx_app/sankofa.jpg' %}" alt="Image description"style="width: 15%; height: auto;">
+    </div>
+
   </body>
 </html>
+<div class="footer">
+    <p>Created by DEH Solutions</p>
+</div>
+
+.footer {
+    background-color: lightgrey;
+    border-top: 1px solid rgb(17, 16, 17);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    width: 100%;
+    
+    padding: 0px;
+    z-index: 0;
+  }
