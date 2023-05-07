@@ -21,22 +21,34 @@ def index(request):
 def tester(request):
     return render(request,'tester.html')
 
+def grid_test(request):
+    return render(request,'grid_css_test.html')
+
+def test(request):
+    return render(request,'test2.html')
+
+
+
 #@login_required  # Require user to be logged in
 def answer_question(request, question_id):
-    question = Question.objects.get(question_identifier=question_id)
-    questtext = question.question_text
-    if request.method == 'POST': # runs if form has been filled in else it will render an empty form
-        form = AnswerForm(request.POST)
-        if form.is_valid():
-            answer_text = form.cleaned_data['answer_text']
-            answer_date = datetime.now()
-            answer = Answer(question=question, user=request.user, answer_text=answer_text,answer_date = answer_date)  # Link answer to user
-            
-            answer.save()
-            return redirect('success_page')  # Redirect to a success page
+    max_quetion = 3
+    if question_id <= max_quetion:
+        question = Question.objects.get(question_identifier=question_id)
+        questtext = question.question_text
+        if request.method == 'POST': # runs if form has been filled in else it will render an empty form
+            form = AnswerForm(request.POST)
+            if form.is_valid():
+                answer_text = form.cleaned_data['answer_text']
+                answer_date = datetime.now()
+                answer = Answer(question=question, user=request.user, answer_text=answer_text,answer_date = answer_date)  # Link answer to user
+                
+                answer.save()
+                return redirect('success_page')  # Redirect to a success page
+        else:
+            form = AnswerForm()
+        return render(request, 'answer.html', {'form': form, 'question': question,'title':questtext})
     else:
-        form = AnswerForm()
-    return render(request, 'answer.html', {'form': form, 'question': question,'title':questtext})
+        return redirect('success_page')
  
 # View to show succesfful completion of answer form
 def success_page(request):

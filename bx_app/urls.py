@@ -12,6 +12,9 @@ urlpatterns = [
     path('most_recent', views.most_recent_answer, name='most_recent'),
     path('tester', views.tester, name='tester'),
     path('display_answers', views.organise_answers, name='display_answers'),
+   # path('grid_test', views.grid_test, name='grid_test'),
+    path('index', views.index, name='index'),
+   # path('test_2', views.test, name='test_2'),
     
     
 

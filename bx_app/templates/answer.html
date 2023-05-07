@@ -2,9 +2,10 @@
 {% extends "base.html" %}
 <html>
 <body>
+    
     {% block content%}
 
-    <br><br><br><br><br><br>
+    <br><br>
 
     <style>
         .inner-div {
@@ -28,7 +29,7 @@
             <div class="answer_buttons">
                 <input type="submit" value="Submit">
                 <br> <br> <br>
-                <a href="{% url 'question_detail' question.question_identifier|add:1 %}">Answer Question 2</a><br>
+                <a href="{% url 'question_detail' question.question_identifier|add:1 %}">NEXT QUESTION</a><br>
             </div>
 
     
