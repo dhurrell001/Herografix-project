@@ -1,12 +1,113 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/878f9ad7cf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'bx_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bx_app/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sharada&display=swap" rel="stylesheet">
+    <style>
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+
+
+        .container {
+                gap: 10px;
+                display:grid;
+                grid-template-columns: repeat(6,1fr)  ;
+                grid-template-rows: 100px 30px repeat(5,100px) 1fr;
+
+        
+        }
+        .wombat{
+            grid-column: 1/6;
+            
+            background-color: rgb(226, 223, 219);
+            
+        }
+        .puppy{
+            display:flex;
+            grid-row: 3/span 5;
+            background-color: blue;
+            
+        }
+        .logo{
+            background-color: cadetblue;
+            grid-row:2;
+            grid-column: 1/7;
+            
+
+        }
+        li {
+            display: inline;
+            }
+
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+        .wordy{
+            background-color: aquamarine;
+            grid-row: 3/span 3;
+            grid-column: 2/span 3;
+            
+           
+        }
+        .pic{
+            
+            grid-row:  1;
+            grid-column: 6;
+        }
+
+    
+    </style>
     <title>Page Title</title>
 </head>
 <body>
-    
-    <h1>This is a heading</h1>
-    <p>This is a paragraph.</p>
+    <div class="container">
+        <div class="wombat">
+        <h1><strong>HEROGRAFIX</strong></h1>
+        </div>
+        <div class="puppy">
+        <p>This is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraphThis is a paragraph.</p>
+        </div>
+        <div class="logo">
+            <ul>
+                <li><a href="{% url 'index'%}">HOME</a></li>
+               <li><a href="{% url 'question_detail' question_id=1 %}">QUESTION 1</a></li>
+               <li><a href="{% url 'question_detail' question_id=2 %}">QUESTION 2</a></li>
+               <li><a href="{% url 'question_detail' question_id=3 %}">QUESTION 3</a></li>
+               <li><a href="{% url 'user_answers'%}">ALL ANSWERS</a></li>
+               <li><a href="{% url 'most_recent'%}">M. RECENT</a></li>
+               <li><a href="{% url 'display_answers'%}">SORTED ANSWERS</a></li>
+               <li><a href="{% url 'logout' %}?next={{ request.path }}">LOGOUT</a></li>
+               <li><a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a></li>
+               </li>
+               </ul>
+        </div>
+        <div class="wordy">
+            <p>this is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=boxthis is my word n=box</p>
+        </div>
+        <div class="pic">
+             <img src="{% static 'bx_app/sankofa.jpg' %}" alt="Image description"style="width: 62%; height: auto;">
+
+            
+
+        </div>
+        <div class="home-icon">
+            <i class="fas fa-home"></i>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-dg/GhAa0+KrHdyx62nnDlrb+JvlYtCqG3fjJd+Zzwr0f/X+7pBwW+L8ygz0G9X2Ys4J4W4+kmZvKjSl1RmnFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 </html>
