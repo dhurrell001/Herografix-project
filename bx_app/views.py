@@ -19,7 +19,7 @@ def index(request):
     return render(request,'index.html',context )
 
 def tester(request):
-    return render(request,'tester.html')
+    return render(request,'test2.html')
 
 def grid_test(request):
     return render(request,'grid_css_test.html')

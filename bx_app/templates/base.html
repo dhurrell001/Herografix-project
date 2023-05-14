@@ -4,7 +4,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-9kwzNqHTWg8vzZ1KjHgmi7Dqg0eguE7b1X9jK5l5+pcBSS0iZ5tlc6M2a7OjxhUu84dUzX9kYp7fzG6hEa7b0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
 
     <link rel="stylesheet" href="{% static 'bx_app/style.css' %}">
@@ -17,6 +18,20 @@
           text-align: right;
           
         }
+        footer {
+            background-color: rgb(227, 218, 218);
+            border-top: 1px solid rgb(75, 73, 75);
+            text-align: center;
+            position: fixed;/* position: fixed;*/
+            bottom: 0;
+            height: 20px;
+            left: 0;
+            width: 100%;
+            align-items: center;
+            
+        }
+            
+           
     </style>
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
@@ -27,7 +42,7 @@
             <h1><strong>HEROGRAFIX PROJECT </strong></h1>
           </div>
 
-          <br><br><br><br>
+          <br><br><br>
             <ul>
              <li><a href="{% url 'index'%}">HOME</a></li>
             <li><a href="{% url 'question_detail' question_id=1 %}">QUESTION 1</a></li>
@@ -58,15 +73,7 @@
     </main>
     
 
-    <footer>
-        <div class="picture">
-            <img src="{% static 'bx_app/sankofa.jpg' %}" alt="Image description"style="width: 15%; height: auto;opacity: 0.3;">
-            </div>
-        
-        <div class="footer">
-            <p>Created by DEH Solutions</p>
-          </div>
-    </footer>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-dg/GhAa0+KrHdyx62nnDlrb+JvlYtCqG3fjJd+Zzwr0f/X+7pBwW+L8ygz0G9X2Ys4J4W4+kmZvKjSl1RmnFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>

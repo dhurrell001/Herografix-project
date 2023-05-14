@@ -8,35 +8,61 @@
     <br><br>
 
     <style>
+        
         .inner-div {
-            width: 50%;
-            margin: 0 auto;
-            text-align: left;
+             grid-column-start: 1 ;
+            grid-row: 2;
+            
+            justify-items: start;
         }
         .answer_buttons {
-            width: 50%;
-            margin: 0 auto;
-            text-align: right;
-        }
-    </style>
- 
-    <div class="inner-div">
-        <form method="post">
-            {% csrf_token %}
-            <p>{{title}}</p>
-            {{ form.as_p }}
             
-            <div class="answer_buttons">
-                <input type="submit" value="Submit">
-                <br> <br> <br>
-                <a href="{% url 'question_detail' question.question_identifier|add:1 %}">NEXT QUESTION</a><br>
-            </div>
 
-    
-    
-        </form>
-
+           padding:0;
+           margin-bottom:2px;
+            margin-right :10px;
+            
+            text-align: right;
+            width:97%;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 650px repeat(10,1fr);
+            grid-template-rows: 0.5fr 1fr 1fr;
+            gap: 10px;
+        }
+        .answer{
+            grid-row:3;
+            grid-column:3;
+            
+        }
+        .title_box{
+            grid-row: 1;
+            grid-column: 1/span 2;
+        }
+     </style>
+    <div class="container">
+        <div class = "title_box">
+        <p>{{title}}</p>
+        </div>
+        <div class="inner-div">
+            <form method="post">
+                {% csrf_token %}
+                
+                {{ form.as_p }}     
+                
+                <div  class="answer_buttons">
+                    <input type="submit" value="Submit">
+                    <br> 
+                    <a href="{% url 'question_detail' question.question_identifier|add:1 %}">NEXT QUESTION</a><br>
+                </div>
+                
+            </form>
+            
+        </div>
+       
     </div>
+    
 {% endblock %}
 
 </body>

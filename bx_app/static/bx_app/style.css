@@ -1,17 +1,21 @@
 
 body {
     
-    background-image: linear-gradient(rgb(239, 236, 236),rgb(31, 30, 30));
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(rgb(247, 245, 245),rgb(194, 192, 192));
     overflow-y: scroll;
+    font-family: "Times New Roman", Times, serif;
   }
   
   h1 {
     padding: 1px;
-    color: rgb(46, 44, 44);
+    color: rgb(45, 31, 250);
     font-size: 2em;
-    margin-bottom: 1em;
+   
     font-weight: bold;
-    font-family: Times, serif;
+    font-family: 'Noto Sans Sharada', sans-serif;
     position: left;
   }
   h5 {
@@ -28,12 +32,16 @@ body {
     font-size: 2em;
     margin-bottom: 0.5em;
   }
+  h4{
+    font-family: "Times New Roman", Times, serif;
+  }
  
   p {
-    padding: 20px;
-    font-size: 1.2em;
-    line-height: 1.5em;
-    margin-bottom: 1em;
+    padding: 10px;
+    font-size: 1em;
+    line-height: 1em;
+    font-family: "Times New Roman", Times, serif;
+   /* margin-bottom: 1em;*/
   }
   
   a {
@@ -43,13 +51,13 @@ body {
     /*font-weight: ;*/
     box-sizing: border-box;
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 0.5em;
     text-decoration: none;
     
-    background-color:#cac8ce;
+    background-color:#e8e6ea;
     border: 1px solid #a9a6a6;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 1px;
    
   }
   
@@ -58,34 +66,37 @@ body {
   }
 
   .header {
-    background-image: linear-gradient(to bottom, #b853f3, #9f59fb, #bf66fb, #cd92f9, #eeadf5);
+   /* background-image: linear-gradient(to bottom, #b853f3, #9f59fb, #bf66fb, #cd92f9, #eeadf5);^/
     border-top: 1px solid rgb(82, 82, 86); /* Change this to the desired border thickness and blue color */
     /*border-bottom: 1px solid rgb(66, 66, 67); /* Change this to the desired border thickness and blue color */
+    background-color: white;
     text-align: center;
     position: fixed;
-    top: 0;
+    top: 5px;
+    
     left: 0;
     width: 100%;
-    height: 30px;
-    padding: 20px;
+    height: 40px;
+    padding: 2px;
+    border-bottom: 1px solid rgb(17, 16, 17);
     
     display: flex; /* add this */
     align-items: center; /* add this */
     margin: 0 auto; /* Center horizontally */
     z-index: 1;
   }
-  .footer {
-    background-color: lightgrey;
+  footer {
+    background-color: rgb(112, 110, 110);
     border-top: 1px solid rgb(17, 16, 17);
     text-align: center;
-    position: fixed;/* position: fixed;*/
+    position: absolute;/* position: fixed;*/
     bottom: 0;
-    height: 10px;
+    height: 50px;
     left: 0;
     width: 100%;
     
     padding: 0px;
-    z-index: 0;
+   /* z-index: 10;*/
   }
 
   .form-input {
@@ -100,11 +111,7 @@ body {
   }
   
   
-  .inner-div {
-    width: 50%; /* adjust as needed */
-    margin: 0 auto;
-    text-align: center;
-}
+ 
 
 li {
   display: inline;
@@ -115,4 +122,6 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+
 
