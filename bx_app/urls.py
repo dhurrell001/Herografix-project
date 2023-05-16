@@ -1,6 +1,14 @@
 from django.urls import path
 from . import views
+from django.contrib import admin
 
+from accounts import views as accounts_views
+
+
+
+from django.contrib.auth import views as auth_views
+
+from accounts import views as accounts_views
 
 
 urlpatterns = [
@@ -14,7 +22,14 @@ urlpatterns = [
     path('display_answers', views.organise_answers, name='display_answers'),
    # path('grid_test', views.grid_test, name='grid_test'),
     path('index', views.index, name='index'),
-   # path('test_2', views.test, name='test_2'),
+    path('test', views.test, name='test'),
+    path('signup', accounts_views.signup, name='signup'),
+    path('admin', admin.site.urls),
+    path('logout', auth_views.LogoutView.as_view(), name='logout'),
+    path('login', auth_views.LoginView.as_view(template_name='login.html'), name='login')
+   
+   
+    
     
     
 

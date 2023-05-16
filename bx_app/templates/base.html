@@ -42,7 +42,7 @@
             <h1><strong>HEROGRAFIX PROJECT </strong></h1>
           </div>
 
-          <br><br><br>
+          <br><br>
             <ul>
              <li><a href="{% url 'index'%}">HOME</a></li>
             <li><a href="{% url 'question_detail' question_id=1 %}">QUESTION 1</a></li>
@@ -60,6 +60,9 @@
           {% else %}
             
             <li><a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a></li>
+            <li><a href="{% url 'login' %}?next={{ request.path }}">LOGIN2</a></li>
+
+           
           {% endif %}
             </li>
             </ul>

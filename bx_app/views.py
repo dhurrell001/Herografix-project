@@ -25,7 +25,7 @@ def grid_test(request):
     return render(request,'grid_css_test.html')
 
 def test(request):
-    return render(request,'test2.html')
+    return render(request,'login.html')
 
 
 
