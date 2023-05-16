@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+<style>
+   .container {
+        width: 50%;
+        display: flex;
+        justify-content: start;
+    }
+    .custom_card{
+
+        background-color: rgb(186, 183, 183);
+        box-shadow:0 0 10px 4px rgba(0,0,0,0.06);
+
+    }
+    
+</style>
+{% block content %}
+  <div class="container">
+    <h2>Sign up</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      
+      <div class="card mb-3 custom_card">
+        <div class="card-body">
+          <h6 class="card-title">Username</h6>
+          <div class="form-group">
+            {{ form.username }}
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 custom_card">
+        <div class="card-body">
+          <h6 class="card-title">Email</h6>
+          <div class="form-group">
+            {{ form.email }}
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 custom_card">
+        <div class="card-body">
+          <h6 class="card-title">Password</h6>
+          <div class="form-group">
+            {{ form.password1 }}
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 custom_card">
+        <div class="card-body">
+          <h6 class="card-title">Confirm Password</h6>
+          <div class="form-group">
+            {{ form.password2 }}
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Create an account</button>
+    </form>
+  </div>
+{% endblock %}

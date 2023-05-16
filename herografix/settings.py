@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',  # Django content type system (allows permissions to be associated with models).
     
     'django.contrib.admin',
+    'accounts',
     'widget_tweaks',
 
 ]
@@ -129,7 +130,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'bx_app/static'),
 ]
 
 # Default primary key field type
