@@ -29,7 +29,7 @@ def test(request):
 
 
 
-#@login_required  # Require user to be logged in
+@login_required  # Require user to be logged in
 def answer_question(request, question_id):
     max_quetion = 3
     if question_id <= max_quetion:
