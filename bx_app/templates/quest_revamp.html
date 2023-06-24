@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html>
+    
+<body>
+    
+ {% block content%}
+
+   
+    <div class="container">
+        <div class = "title_box">
+        <p>{{title}}</p>
+        </div>
+        <div class="inner-div">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}     
+                <div  class="answer_buttons">
+                    <input type="submit" value="Submit">
+                    <br> 
+                    <a href="{% url 'question_detail' question.question_identifier|add:1 %}">NEXT QUESTION</a><br>
+                </div>
+            </form>
+            
+        </div>
+       
+    </div>
+    
+{% endblock %}
+
+</body>
+</html>

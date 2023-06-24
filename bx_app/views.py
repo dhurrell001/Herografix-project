@@ -19,7 +19,7 @@ def index(request):
     return render(request,'index.html',context )
 
 def tester(request):
-    return render(request,'test2.html')
+    return render(request,'quest_revamp.html')
 
 def grid_test(request):
     return render(request,'grid_css_test.html')
@@ -46,7 +46,8 @@ def answer_question(request, question_id):
                 return redirect('success_page')  # Redirect to a success page
         else:
             form = AnswerForm()
-        return render(request, 'answer.html', {'form': form, 'question': question,'title':questtext})
+            #change back to answer.html if messing around does not work!!
+        return render(request, 'quest_revamp.html', {'form': form, 'question': question,'title':questtext})
     else:
         return redirect('success_page')
  
