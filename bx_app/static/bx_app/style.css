@@ -11,12 +11,13 @@ body {
   
   h1 {
     padding: 1px;
-    color: rgb(45, 31, 250);
+    color: rgb(156, 149, 249);
     font-size: 2em;
    
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: 'Noto Sans Sharada', sans-serif;
-    position: left;
+    position: center;
+    
   }
   h5 {
     padding: 20px;
@@ -80,10 +81,11 @@ body {
     padding: 2px;
     border-bottom: 1px solid rgb(17, 16, 17);
     
-    display: flex; /* add this */
+    display: flexbox; /* add this */
     align-items: center; /* add this */
     margin: 0 auto; /* Center horizontally */
     z-index: 1;
+    justify-content: center;
   }
   footer {
     background-color: rgb(112, 110, 110);

@@ -1,3 +1,21 @@
+
+.grid_container{
+    background-color: lightgray;
+    display : grid;
+    grid-template-rows: 150px 1fr 1fr;
+
+
+}
+
 .container{
-    background-color : red;
+    display: flex;
+    flex-direction: column;
+    grid-row: 2;
+    justify-content: centre;
+    /* background-color : red; */
+    align-items: center;
+}
+.inner-div{
+    justify-content: center;
+    align-items: center;
 }
