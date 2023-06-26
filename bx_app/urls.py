@@ -8,7 +8,7 @@ from accounts import views as accounts_views
 
 from django.contrib.auth import views as auth_views
 
-from accounts import views as accounts_views
+
 
 
 urlpatterns = [
@@ -23,7 +23,9 @@ urlpatterns = [
     path('display_answers', views.organise_answers, name='display_answers'),
    # path('grid_test', views.grid_test, name='grid_test'),
     path('index', views.index, name='index'),
-    path('test', views.test, name='test'),
+    #path('test', views.test, name='test'),
+
+    ######################## registrationtion #########################
     path('signup', accounts_views.signup, name='signup'),
     path('admin', admin.site.urls),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
