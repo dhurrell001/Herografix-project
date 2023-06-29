@@ -139,7 +139,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/bx_app/'
+LOGIN_REDIRECT_URL = 'bx_app/'
+LOGOUT_REDIRECT_URL = 'index'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

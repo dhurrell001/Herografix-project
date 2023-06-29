@@ -52,12 +52,14 @@
             <li><a href="{% url 'user_answers'%}">ALL ANSWERS</a></li>
             <li><a href="{% url 'most_recent'%}">M. RECENT</a></li>
             <li><a href="{% url 'display_answers'%}">SORTED ANSWERS</a></li>
+            <li><a href="{% url 'answer_letter'%}">ANSWER LETTERS</a></li>
             
         
           {% if user.is_authenticated %}
             
             
-            <li><a href="{% url 'logout' %}?next={{ request.path }}">LOGOUT</a></li>
+            <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+            <!-- <li><a href="{% url 'logout' %}?next={{ request.path }}">LOGOUT</a></li> -->
           {% else %}
             
             <li><a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a></li>

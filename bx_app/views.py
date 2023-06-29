@@ -18,15 +18,6 @@ def index(request):
     context = {'user':user}
     return render(request,'index.html',context )
 
-def tester(request):
-    return render(request,'quest_revamp.html')
-
-def grid_test(request):
-    return render(request,'grid_css_test.html')
-
-def test(request):
-    return render(request,'login.html')
-
 
 
 @login_required  # Require user to be logged in
@@ -67,7 +58,7 @@ def user_answers(request):
     context = {'user_answers': user_answers} # create a context dictionary with the user answers
     return render(request, 'user_answers.html', context) # render the user_answers.html template with the context dictionary
 
-
+@login_required
 def organise_answers(request):
     # get the latest answer to question. filter by id and onlt store results in 1 item list [:1]. check if this item exist else replace with None
     # order of how they are displayed can be rearranged in display_answers.html
@@ -82,12 +73,36 @@ def organise_answers(request):
         quest3 = subquery3[0] if subquery3 else None
 
         context = {'quest1':quest1,'quest2':quest2,'quest3':quest3}
+        #change back to 'display_answers.html' for workin function
 
         return render(request, 'display_answers.html',context)
     
     except Exception as e:
         # return an error message
         return HttpResponse("An error occurred: " + str(e))
+    
+def answer_letter(request):
+    # get the latest answer to question. filter by id and onlt store results in 1 item list [:1]. check if this item exist else replace with None
+    # order of how they are displayed can be rearranged in display_answers.html
+    try:
+        user = request.user
+        subquery1 = Answer.objects.filter(user=user, question__question_identifier=1).order_by('-answer_date')[:1]
+        subquery2 = Answer.objects.filter(user=user, question__question_identifier=2).order_by('-answer_date')[:1]
+        subquery3 = Answer.objects.filter(user=user, question__question_identifier=3).order_by('-answer_date')[:1]
+        
+        quest1= subquery1[0] if subquery1 else None
+        quest2= subquery2[0] if subquery2 else None
+        quest3 = subquery3[0] if subquery3 else None
+
+        context = {'quest1':quest1,'quest2':quest2,'quest3':quest3}
+        #change back to 'display_answers.html' for workin function
+
+        return render(request, 'answer_letter.html',context)
+
+    except Exception as e:
+        # return an error message
+        return HttpResponse("An error occurred: " + str(e))
+
 
 def most_recent_answer(request):
     user = request.user   # gets current user data

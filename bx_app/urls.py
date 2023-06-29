@@ -21,13 +21,15 @@ urlpatterns = [
    # path('tester', views.tester, name='tester'),
    # path('tester/<int:question_id>/', views.tester, name='question_detail'),
     path('display_answers', views.organise_answers, name='display_answers'),
+    path('answer_letter', views.answer_letter, name='answer_letter'),
    # path('grid_test', views.grid_test, name='grid_test'),
     path('index', views.index, name='index'),
     #path('test', views.test, name='test'),
 
-    ######################## registrationtion #########################
+    ######################## registration #########################
     path('signup', accounts_views.signup, name='signup'),
     path('admin', admin.site.urls),
+    #path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('login', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('accounts/', include('django.contrib.auth.urls'))
