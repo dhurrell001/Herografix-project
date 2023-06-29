@@ -1,8 +1,8 @@
 
 .grid_container{
-    background-color: lightgray;
+    background-color: #f6fafa;
     display : grid;
-    grid-template-rows: 150px 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr;
 
 
 }
