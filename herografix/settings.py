@@ -33,15 +33,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bx_app',
-    
-    
-    
+
+
+
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.auth',  # Core authentication framework and its default models.
-    'django.contrib.contenttypes',  # Django content type system (allows permissions to be associated with models).
-    
+    # Core authentication framework and its default models.
+    'django.contrib.auth',
+    # Django content type system (allows permissions to be associated with models).
+    'django.contrib.contenttypes',
+
     'django.contrib.admin',
     'accounts',
     'widget_tweaks',
@@ -50,15 +52,17 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',  # Manages sessions across requests
-    
+    # Manages sessions across requests
+    'django.contrib.sessions.middleware.SessionMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Associates users with requests using sessions.
+
+    # Associates users with requests using sessions.
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'herografix.urls'
@@ -139,5 +143,10 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/bx_app/'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
+# redirects for resetting password email
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"

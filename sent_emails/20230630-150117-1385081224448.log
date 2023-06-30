@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: bex@gmail.com
+Date: Fri, 30 Jun 2023 14:01:17 -0000
+Message-ID: <168813367785.39460.3637029396659682703@DESKTOP-HV7AMC8>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/reset/OQ/bqm4e5-9788dc027aa647e8646e24b97d1d7b3d/
+
+Your username, in case you’ve forgotten: bx
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

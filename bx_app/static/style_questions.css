@@ -1,0 +1,21 @@
+
+.grid_container{
+    background-color:#F8F6F4;;
+    display : grid;
+    grid-template-rows: 100px 1fr 1fr;
+
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    grid-row: 2;
+    justify-content: centre;
+    /* background-color : red; */
+    align-items: center;
+}
+.inner-div{
+    justify-content: center;
+    align-items: center;
+}

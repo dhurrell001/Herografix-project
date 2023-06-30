@@ -18,15 +18,15 @@
 </head>
 <body>
     {% block content%}
-    <br><br><br><br><br><br>
+    
     <div class = "message">
-        <h3>Answer has been submitted.</h3><br>
+        <h3>Your answers have been submitted.</h3><br>
+        
+        <p>Thank you {{user}}</p>
+        
+        <a href="{% url 'index'%}">HOME</a><br>
+    
     </div>
-    
-    <p>Thank you {{user}}</p>
-    
-    <a href="{% url 'index'%}">HOME</a><br>
-
     
     {%endblock%}
 </body>
